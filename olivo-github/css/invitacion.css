@@ -1,0 +1,2525 @@
+/* 1. Colores y configuración general */
+
+:root {
+    --fondo: #faf8f2;
+    --superficie: #ffffff;
+    --verde: #42513d;
+    --verde-oscuro: #303d2c;
+    --verde-suave: #e8ecdf;
+    --texto: #30392d;
+    --texto-suave: #626b5d;
+    --borde: #d5dccb;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: normal;
+    line-height: 1.15;
+}
+
+h2 {
+    margin-bottom: 24px;
+    font-size: clamp(2rem, 6vw, 3rem);
+    text-wrap: balance;
+}
+
+h3 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+a {
+    color: var(--verde);
+    text-underline-offset: 5px;
+}
+
+a:focus-visible {
+    outline: 3px solid var(--verde);
+    outline-offset: 5px;
+}
+
+.etiqueta {
+    margin-bottom: 24px;
+    color: var(--verde);
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.adorno {
+    display: block;
+    color: var(--verde);
+    font-size: 3rem;
+    line-height: 1;
+}
+
+
+/* 2. Barra que identifica la demostración */
+
+.barra-demo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--borde);
+    background: var(--superficie);
+    font-size: 0.8rem;
+}
+
+.barra-demo span {
+    color: var(--texto-suave);
+}
+
+
+/* 3. Portada de la invitación */
+
+.portada-invitacion {
+    padding: 56px 24px;
+    background: linear-gradient(
+        180deg,
+        var(--verde-suave),
+        var(--fondo)
+    );
+    text-align: center;
+}
+
+.marco-portada {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto 32px;
+    padding: 48px 24px 40px;
+    border: 1px solid var(--verde);
+    border-radius: 220px 220px 12px 12px;
+}
+
+.marco-portada .adorno {
+    margin-bottom: 24px;
+}
+
+h1 {
+    margin-bottom: 28px;
+    color: var(--verde);
+    font-size: clamp(2.6rem, 9vw, 4.6rem);
+}
+
+h1 span {
+    display: block;
+    margin: 12px 0;
+    font-size: 0.55em;
+    font-style: italic;
+}
+
+.frase-portada {
+    max-width: 330px;
+    margin: 0 auto 28px;
+    color: var(--texto-suave);
+    font-size: 0.95rem;
+}
+
+.fecha-portada {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.boton {
+    display: inline-block;
+    padding: 14px 24px;
+    border: 1px solid var(--verde);
+    border-radius: 6px;
+    background: var(--verde);
+    color: #ffffff;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.boton:hover {
+    background: var(--verde-oscuro);
+}
+
+.nota-demo {
+    max-width: 380px;
+    margin: 20px auto 0;
+    color: var(--texto-suave);
+    font-size: 0.75rem;
+}
+
+
+/* 4. Secciones compartidas */
+
+.seccion {
+    padding: 64px 24px;
+    text-align: center;
+}
+
+.seccion > p:not(.etiqueta) {
+    max-width: 580px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.seccion > p:last-child {
+    margin-bottom: 0;
+}
+
+.mensaje .adorno {
+    margin-top: 32px;
+}
+
+.celebracion,
+.vestimenta,
+.asistencia {
+    background: var(--verde-suave);
+}
+
+.fecha-evento {
+    margin-bottom: 32px;
+    color: var(--verde);
+    font-size: 1.1rem;
+}
+
+
+/* 5. Ceremonia y recepción */
+
+.eventos-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.tarjeta-evento {
+    min-width: 0;
+    padding: 32px 24px;
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    background: var(--superficie);
+}
+
+.tarjeta-evento .etiqueta {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+}
+
+.hora {
+    color: var(--verde);
+    font-size: 1.25rem;
+}
+
+.nombre-lugar {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.dato-demo {
+    display: block;
+    color: var(--texto-suave);
+    font-size: 0.75rem;
+}
+
+
+/* 6. Programa del evento */
+
+.programa {
+    max-width: 540px;
+    margin: 32px auto 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+}
+
+.programa li {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--borde);
+}
+
+.programa time {
+    color: var(--verde);
+    font-weight: bold;
+}
+
+.programa span {
+    min-width: 0;
+}
+
+
+/* 7. Vestimenta y confirmación */
+
+.texto-destacado {
+    color: var(--verde);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2rem;
+}
+
+.aviso {
+    padding: 16px;
+    border: 1px solid var(--verde);
+    border-radius: 8px;
+    font-size: 0.85rem;
+}
+
+
+/* 8. Despedida y pie de página */
+
+.despedida .adorno {
+    margin-bottom: 24px;
+}
+
+.despedida p {
+    color: var(--verde);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.5rem;
+}
+
+.pie-invitacion {
+    padding: 28px 24px;
+    border-top: 1px solid var(--borde);
+    color: var(--texto-suave);
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.pie-invitacion p {
+    margin-bottom: 8px;
+}
+
+
+/* 9. Adaptación a pantallas más grandes */
+
+@media (min-width: 700px) {
+    .portada-invitacion {
+        padding-top: 72px;
+        padding-bottom: 72px;
+    }
+
+    .seccion {
+        padding: 80px 32px;
+    }
+
+    .eventos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* 10. Preferencia de movimiento reducido */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .boton {
+        transition: none;
+    }
+
+    /* 11. Cuenta regresiva */
+
+.cuenta-regresiva {
+    border-top: 1px solid var(--borde);
+    border-bottom: 1px solid var(--borde);
+}
+
+.contador {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    max-width: 560px;
+    margin: 32px auto 24px;
+}
+
+/* Respeta el atributo hidden aunque el contador use display: grid. */
+.contador[hidden] {
+    display: none;
+}
+
+.contador-bloque {
+    min-width: 0;
+    padding: 24px 12px;
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    background: var(--superficie);
+}
+
+.contador-numero {
+    display: block;
+    color: var(--verde);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+}
+
+.contador-unidad {
+    display: block;
+    margin-top: 8px;
+    color: var(--texto-suave);
+    font-size: 0.8rem;
+}
+
+.contador-mensaje {
+    color: var(--texto-suave);
+    font-size: 0.9rem;
+}
+
+@media (min-width: 480px) {
+    .contador {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+}
+
+/* 12. Formulario de confirmación */
+
+.formulario-rsvp {
+    display: grid;
+    gap: 24px;
+    max-width: 560px;
+    margin: 32px auto 0;
+    text-align: left;
+}
+
+.campo {
+    display: grid;
+    gap: 8px;
+}
+
+/* Mantiene oculto el campo cuando tenga el atributo hidden. */
+.campo[hidden] {
+    display: none;
+}
+
+.campo label {
+    color: var(--texto);
+    font-size: 0.95rem;
+    font-weight: bold;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid var(--verde);
+    border-radius: 8px;
+    background: var(--superficie);
+    color: var(--texto);
+    font: inherit;
+    font-size: 1rem;
+}
+
+.campo textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.campo input:focus-visible,
+.campo select:focus-visible,
+.campo textarea:focus-visible,
+.formulario-rsvp button:focus-visible {
+    outline: 3px solid var(--verde);
+    outline-offset: 3px;
+}
+
+.campo small {
+    color: var(--texto-suave);
+    font-size: 0.8rem;
+}
+
+.formulario-rsvp .boton {
+    width: 100%;
+    font: inherit;
+    cursor: pointer;
+}
+
+.formulario-rsvp .boton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.resultado-rsvp:not(:empty) {
+    max-width: 560px;
+    margin: 24px auto 0;
+    padding: 20px;
+    border: 1px solid var(--verde);
+    border-radius: 8px;
+    background: var(--superficie);
+    color: var(--verde-oscuro);
+    text-align: left;
+}
+
+/* Portada de Olivo con ilustración */
+
+.ilustracion-olivo {
+    width: min(100%, 280px);
+    margin: 0 auto 24px;
+}
+
+.ilustracion-olivo svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.ramas-olivo {
+    fill: none;
+    stroke: var(--verde);
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+.hojas-olivo {
+    fill: var(--verde);
+    opacity: 0.75;
+}
+
+.anillos-olivo {
+    fill: none;
+    stroke: #9a7843;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Ajustes para los nombres y la composición de portada */
+
+.marco-portada {
+    padding-top: 40px;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.marco-portada h1 {
+    font-size: clamp(2.2rem, 7vw, 3.8rem);
+    text-wrap: balance;
+    overflow-wrap: break-word;
+}
+
+.frase-portada {
+    text-wrap: pretty;
+}
+
+@media (max-width: 480px) {
+    .ilustracion-olivo {
+        max-width: 220px;
+    }
+
+    .marco-portada {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+}
+
+/* ==================================================
+   OLIVO · Portada botánica
+   ================================================== */
+
+/* Paleta compartida por la invitación */
+:root {
+    --fondo: #f7f3ea;
+    --superficie: #fffdf8;
+    --verde: #354536;
+    --verde-oscuro: #263529;
+    --verde-suave: #e7eadf;
+    --texto: #34352f;
+    --texto-suave: #64685d;
+    --borde: #d8dbcd;
+
+    --olivo-salvia: #a8b29b;
+    --olivo-oro: #a78b58;
+}
+
+/* Composición general */
+.olivo-portada {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 56px 24px 24px;
+    background:
+        radial-gradient(
+            ellipse at 10% 15%,
+            rgba(168, 178, 155, 0.16),
+            transparent 48%
+        ),
+        radial-gradient(
+            ellipse at 90% 85%,
+            rgba(167, 139, 88, 0.08),
+            transparent 45%
+        ),
+        var(--fondo);
+}
+
+/* Un patrón tenue sugiere la superficie del papel */
+.olivo-portada::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.18;
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            rgba(53, 69, 54, 0.06) 0,
+            rgba(53, 69, 54, 0.06) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+}
+
+.olivo-composicion {
+    position: relative;
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Monograma */
+.olivo-monograma {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+    min-height: 58px;
+    margin-bottom: 36px;
+    padding: 10px 16px;
+    border-top: 1px solid var(--olivo-oro);
+    border-bottom: 1px solid var(--olivo-oro);
+    color: var(--verde);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+}
+
+.olivo-antetitulo {
+    margin: 0 0 30px;
+    color: var(--verde);
+    font-size: 0.68rem;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+/* Los nombres son el centro de la composición */
+.olivo-nombres {
+    margin: 0;
+    color: var(--verde);
+    font-family: "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: clamp(3.2rem, 10vw, 6.5rem);
+    font-weight: normal;
+    line-height: 1.04;
+    letter-spacing: -2px;
+}
+
+.olivo-nombres .olivo-nombre {
+    display: block;
+    margin: 0;
+    font-size: inherit;
+    font-style: normal;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+}
+
+.olivo-nombres .olivo-union {
+    display: block;
+    margin: 12px 0 16px;
+    color: var(--olivo-oro);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 0.38em;
+    font-style: italic;
+    font-weight: normal;
+    line-height: 1;
+    letter-spacing: 0;
+}
+
+/* Separador ornamental */
+.olivo-separador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin: 30px auto 24px;
+}
+
+.olivo-separador > span:not(.olivo-rombo) {
+    width: 42px;
+    height: 1px;
+    background: var(--olivo-oro);
+}
+
+.olivo-rombo {
+    width: 5px;
+    height: 5px;
+    background: var(--olivo-oro);
+    transform: rotate(45deg);
+}
+
+/* Frase y fecha */
+.olivo-frase {
+    margin: 0 0 32px;
+    color: var(--texto-suave);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-style: italic;
+    line-height: 1.8;
+}
+
+.olivo-fecha {
+    display: grid;
+    gap: 10px;
+}
+
+.olivo-fecha-etiqueta {
+    color: var(--texto-suave);
+    font-size: 0.6rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.olivo-fecha time {
+    color: var(--verde);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.15rem, 3vw, 1.5rem);
+    line-height: 1.5;
+}
+
+/* Enlace de navegación */
+.olivo-enlace {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    min-height: 48px;
+    margin-top: 36px;
+    padding: 10px 4px;
+    border-bottom: 1px solid var(--olivo-oro);
+    color: var(--verde);
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+
+.olivo-enlace:hover {
+    color: var(--verde-oscuro);
+    border-bottom-color: var(--verde-oscuro);
+}
+
+.olivo-enlace span:last-child {
+    font-size: 1.3rem;
+}
+
+/* Ilustración asimétrica */
+.olivo-botanica {
+    position: absolute;
+    top: -35px;
+    right: -95px;
+    z-index: -1;
+    width: clamp(220px, 30vw, 390px);
+    height: auto;
+    opacity: 0.45;
+    transform: rotate(-18deg);
+    pointer-events: none;
+}
+
+.olivo-tallos {
+    fill: none;
+    stroke: var(--verde);
+    stroke-width: 1.3;
+    stroke-linecap: round;
+}
+
+.olivo-hojas {
+    fill: var(--olivo-salvia);
+    stroke: var(--verde);
+    stroke-width: 0.6;
+}
+
+.olivo-frutos {
+    fill: var(--verde);
+}
+
+/* Nota de demostración */
+.olivo-nota {
+    position: relative;
+    margin: 48px auto 0;
+    color: var(--texto-suave);
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/* Pantallas amplias */
+@media (min-width: 900px) {
+    .olivo-portada {
+        padding-top: 72px;
+        padding-bottom: 28px;
+    }
+
+    .olivo-botanica {
+        top: 10px;
+        right: max(-40px, calc((100vw - 1250px) / 2));
+        opacity: 0.6;
+    }
+}
+
+/* Ajustes para celulares pequeños */
+@media (max-width: 380px) {
+    .olivo-portada {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .olivo-nombres {
+        font-size: 2.9rem;
+        letter-spacing: -1px;
+    }
+
+    .olivo-botanica {
+        right: -125px;
+        opacity: 0.3;
+    }
+}
+
+/* Entrada suave de la composición */
+@keyframes aparecer-olivo {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .olivo-composicion {
+        animation: aparecer-olivo 0.8s ease-out both;
+    }
+}
+
+/* Refinamiento de la portada */
+
+.olivo-portada::before {
+    opacity: 0.06;
+}
+
+.olivo-monograma {
+    min-width: 68px;
+    min-height: 48px;
+    margin-bottom: 26px;
+    padding: 8px 12px;
+    font-size: 1rem;
+    letter-spacing: 3px;
+}
+
+.olivo-antetitulo {
+    margin-bottom: 24px;
+}
+
+@media (max-width: 600px) {
+    .olivo-portada {
+        padding-top: 38px;
+    }
+
+    .olivo-separador {
+        margin-top: 24px;
+        margin-bottom: 20px;
+    }
+
+    .olivo-frase {
+        margin-bottom: 26px;
+    }
+
+    .olivo-enlace {
+        margin-top: 26px;
+    }
+}
+
+/* Olivo: ilustración botánica refinada */
+
+.olivo-botanica {
+    top: -35px;
+    right: -72px;
+    width: clamp(230px, 29vw, 380px);
+    opacity: 0.62;
+    transform: rotate(-12deg);
+}
+
+.olivo-tallos,
+.olivo-pedunculos {
+    fill: none;
+    stroke: #7b8066;
+    stroke-width: 1.15;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.olivo-follaje {
+    color: #9da98b;
+}
+
+.olivo-hoja-clara {
+    color: #c2c9b2;
+}
+
+.olivo-lamina {
+    fill: currentColor;
+    fill-opacity: 0.8;
+    stroke: #77836a;
+    stroke-width: 0.65;
+    stroke-linejoin: round;
+}
+
+.olivo-nervadura {
+    fill: none;
+    stroke: #68765c;
+    stroke-width: 0.6;
+    stroke-opacity: 0.65;
+    stroke-linecap: round;
+}
+
+.olivo-frutos {
+    fill: #657354;
+    stroke: #536247;
+    stroke-width: 0.5;
+}
+
+@media (min-width: 900px) {
+    .olivo-botanica {
+        top: -15px;
+        right: max(-20px, calc((100vw - 1250px) / 2));
+        opacity: 0.68;
+    }
+}
+
+@media (max-width: 600px) {
+    .olivo-botanica {
+        top: -48px;
+        right: -106px;
+        width: 250px;
+        opacity: 0.48;
+    }
+}
+
+@media (max-width: 380px) {
+    .olivo-botanica {
+        right: -125px;
+        opacity: 0.38;
+    }
+}
+
+/* ==================================================
+   OLIVO · Cuenta regresiva
+   ================================================== */
+
+.olivo-contador {
+    position: relative;
+    padding: 64px 20px;
+    border: 0;
+    background:
+        radial-gradient(
+            ellipse at top left,
+            rgba(168, 178, 155, 0.12),
+            transparent 65%
+        ),
+        var(--verde);
+    color: var(--fondo);
+}
+
+/* Pequeña línea ornamental superior */
+.olivo-contador::before {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 1px;
+    margin: 0 auto 28px;
+    background: #c5ae7e;
+}
+
+.olivo-contador .etiqueta {
+    margin-bottom: 20px;
+    color: #e1cfaa;
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+}
+
+.olivo-contador h2 {
+    max-width: 620px;
+    margin: 0 auto;
+    color: var(--fondo);
+    font-family: "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: normal;
+    line-height: 1.25;
+    text-wrap: balance;
+}
+
+/* Cuatro columnas, también en celular */
+.olivo-contador .contador {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    max-width: 600px;
+    margin: 36px auto 28px;
+}
+
+/* Conservamos el comportamiento del atributo hidden */
+.olivo-contador .contador[hidden] {
+    display: none;
+}
+
+.olivo-contador .contador-bloque {
+    min-width: 0;
+    padding: 8px 4px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+}
+
+/* Separadores entre los números */
+.olivo-contador .contador-bloque + .contador-bloque {
+    border-left: 1px solid rgba(225, 207, 170, 0.3);
+}
+
+.olivo-contador .contador-numero {
+    color: var(--fondo);
+    font-family: "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: clamp(1.9rem, 7vw, 3.8rem);
+    font-weight: normal;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.15;
+    letter-spacing: -1px;
+}
+
+.olivo-contador .contador-unidad {
+    margin-top: 10px;
+    color: #e1cfaa;
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.olivo-contador .contador-mensaje {
+    max-width: 420px;
+    margin: 0 auto;
+    color: #e1e5d8;
+    font-size: 0.85rem;
+    line-height: 1.8;
+}
+
+@media (min-width: 700px) {
+    .olivo-contador {
+        padding: 80px 32px;
+    }
+
+    .olivo-contador .contador {
+        margin-top: 44px;
+        margin-bottom: 32px;
+    }
+
+    .olivo-contador .contador-unidad {
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+    }
+}
+
+/* Más espacio si los números tienen cuatro o más dígitos */
+@media (max-width: 359px) {
+    .olivo-contador {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    .olivo-contador .contador-numero {
+        font-size: 1.65rem;
+    }
+
+    .olivo-contador .contador-unidad {
+        font-size: 0.55rem;
+        letter-spacing: 0;
+    }
+}
+
+/* Mantiene cada unidad debajo de su número */
+
+.olivo-contador .contador-bloque {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.olivo-contador .contador-numero {
+    display: block;
+    margin: 0;
+}
+
+.olivo-contador .contador-unidad {
+    display: block;
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* ==================================================
+   OLIVO · Historia
+   ================================================== */
+
+.olivo-historia {
+    padding: 72px 24px;
+    background: var(--fondo);
+}
+
+.olivo-historia .etiqueta,
+.olivo-celebracion > .etiqueta {
+    font-size: 0.62rem;
+    letter-spacing: 2.5px;
+}
+
+.olivo-historia h2 {
+    max-width: 680px;
+    margin: 0 auto;
+    color: var(--verde);
+    font-family: "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: clamp(1.9rem, 5vw, 3rem);
+    line-height: 1.25;
+    text-wrap: balance;
+}
+
+.olivo-historia .olivo-separador {
+    margin: 28px auto;
+}
+
+.olivo-historia > .olivo-historia-texto {
+    max-width: 510px;
+    color: var(--texto-suave);
+    font-size: 0.95rem;
+    line-height: 1.95;
+    text-wrap: pretty;
+}
+
+.olivo-historia > .olivo-firma {
+    margin-top: 28px;
+    color: var(--verde);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.3rem;
+    font-style: italic;
+}
+
+
+/* ==================================================
+   OLIVO · Ceremonia y recepción
+   ================================================== */
+
+.olivo-celebracion {
+    padding: 64px 24px 72px;
+    border-top: 1px solid var(--borde);
+    border-bottom: 1px solid var(--borde);
+    background: #efeee5;
+}
+
+.olivo-celebracion > h2 {
+    max-width: 650px;
+    margin-right: auto;
+    margin-left: auto;
+    color: var(--verde);
+    font-family: "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    text-wrap: balance;
+}
+
+.olivo-celebracion > .fecha-evento {
+    margin-bottom: 40px;
+    color: var(--texto-suave);
+    font-size: 0.95rem;
+}
+
+.olivo-lugares {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.olivo-lugar {
+    min-width: 0;
+    padding: 32px 16px;
+    text-align: center;
+}
+
+.olivo-lugar + .olivo-lugar {
+    margin-top: 16px;
+    padding-top: 40px;
+    border-top: 1px solid #cbd0bf;
+}
+
+.olivo-lugar-numero {
+    display: block;
+    margin-bottom: 20px;
+    color: var(--olivo-oro);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2.6rem;
+    font-style: italic;
+    line-height: 1;
+}
+
+.olivo-lugar-etiqueta {
+    margin-bottom: 12px;
+    color: var(--texto-suave);
+    font-size: 0.6rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.olivo-lugar h3 {
+    margin-bottom: 16px;
+    color: var(--verde);
+    font-family: "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: clamp(2rem, 4vw, 2.6rem);
+}
+
+.olivo-lugar-hora {
+    margin-bottom: 0;
+    color: var(--verde);
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.olivo-lugar-linea {
+    width: 32px;
+    height: 1px;
+    margin: 24px auto;
+    background: var(--olivo-oro);
+}
+
+.olivo-lugar-nombre {
+    margin-bottom: 6px;
+    color: var(--texto);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.25rem;
+    overflow-wrap: anywhere;
+}
+
+.olivo-lugar-ciudad {
+    margin-bottom: 16px;
+    color: var(--texto-suave);
+    font-size: 0.9rem;
+}
+
+.olivo-lugar-nota {
+    margin-bottom: 0;
+    color: var(--texto-suave);
+    font-size: 0.72rem;
+}
+
+
+/* Distribución en pantallas amplias */
+
+@media (min-width: 700px) {
+    .olivo-historia {
+        padding: 96px 32px;
+    }
+
+    .olivo-celebracion {
+        padding: 80px 32px;
+    }
+
+    .olivo-lugares {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .olivo-lugar {
+        padding: 24px 32px;
+    }
+
+    .olivo-lugar + .olivo-lugar {
+        margin-top: 0;
+        padding-top: 24px;
+        border-top: 0;
+        border-left: 1px solid #cbd0bf;
+    }
+}
+
+/* Direcciones de ceremonia y recepción */
+
+.olivo-lugar-direccion {
+    max-width: 290px;
+    margin: 12px auto 8px;
+    color: var(--texto-suave);
+    font-size: 0.85rem;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+/* ==================================================
+   OLIVO · Programa de la celebración
+   ================================================== */
+
+.olivo-programa {
+    padding: 72px 24px;
+    background: var(--fondo);
+}
+
+.olivo-programa > .etiqueta {
+    font-size: 0.62rem;
+    letter-spacing: 2.5px;
+}
+
+.olivo-programa > h2 {
+    max-width: 650px;
+    margin-right: auto;
+    margin-left: auto;
+    color: var(--verde);
+    font-family: "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.2;
+    text-wrap: balance;
+}
+
+.olivo-programa > .olivo-programa-intro {
+    max-width: 390px;
+    color: var(--texto-suave);
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+/* Lista y línea vertical */
+
+.olivo-itinerario {
+    max-width: 620px;
+    margin: 44px auto 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+}
+
+.olivo-itinerario > li {
+    position: relative;
+    margin: 0;
+    padding: 0 0 36px 32px;
+}
+
+/* La línea une cada momento con el siguiente */
+.olivo-itinerario > li:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    bottom: -8px;
+    left: 7px;
+    width: 1px;
+    background: #c9c7b5;
+}
+
+/* Punto que marca cada momento */
+.olivo-itinerario > li::after {
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: 3px;
+    width: 9px;
+    height: 9px;
+    border: 1px solid var(--olivo-oro);
+    border-radius: 50%;
+    background: var(--fondo);
+}
+
+.olivo-itinerario > li:first-child::after {
+    background: var(--olivo-oro);
+}
+
+.olivo-itinerario > li:last-child {
+    padding-bottom: 0;
+}
+
+/* Horarios */
+
+.olivo-itinerario time {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--verde);
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 1.8;
+}
+
+/* Descripción de cada momento */
+
+.olivo-momento {
+    min-width: 0;
+}
+
+.olivo-momento h3 {
+    margin: 0 0 10px;
+    color: var(--verde);
+    font-family: "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 1.55rem;
+    font-weight: normal;
+    line-height: 1.25;
+    text-wrap: balance;
+}
+
+.olivo-momento p {
+    max-width: 390px;
+    margin: 0;
+    color: var(--texto-suave);
+    font-size: 0.9rem;
+    line-height: 1.85;
+}
+
+/* Frase de cierre */
+
+.olivo-programa > .olivo-programa-cierre {
+    max-width: 430px;
+    margin-top: 44px;
+    margin-bottom: 0;
+    color: var(--verde);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    line-height: 1.8;
+}
+
+/* En pantallas amplias, la hora va a la izquierda */
+
+@media (min-width: 700px) {
+    .olivo-programa {
+        padding: 88px 32px;
+    }
+
+    .olivo-itinerario {
+        margin-top: 52px;
+    }
+
+    .olivo-itinerario > li {
+        display: grid;
+        grid-template-columns: 110px minmax(0, 1fr);
+        column-gap: 40px;
+        padding: 0 0 44px;
+    }
+
+    .olivo-itinerario > li:not(:last-child)::before {
+        left: 129px;
+    }
+
+    .olivo-itinerario > li::after {
+        left: 125px;
+    }
+
+    .olivo-itinerario time {
+        margin-bottom: 0;
+        padding-top: 2px;
+        text-align: right;
+    }
+
+    .olivo-momento h3 {
+        font-size: 1.75rem;
+    }
+}
+
+/* ==================================================
+   OLIVO · Vestimenta
+   ================================================== */
+
+.olivo-vestimenta {
+    padding: 72px 24px;
+    border-top: 1px solid var(--borde);
+    border-bottom: 1px solid var(--borde);
+    background: #e9ecdf;
+}
+
+.olivo-vestimenta > .etiqueta,
+.olivo-regalos > .etiqueta {
+    font-size: 0.62rem;
+    letter-spacing: 2.5px;
+}
+
+.olivo-vestimenta h2,
+.olivo-regalos h2 {
+    max-width: 580px;
+    margin-right: auto;
+    margin-left: auto;
+    color: var(--verde);
+    font-family: "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    line-height: 1.25;
+    text-wrap: balance;
+}
+
+.olivo-vestimenta-ilustracion {
+    display: block;
+    width: 180px;
+    max-width: 100%;
+    height: auto;
+    margin: 28px auto 24px;
+}
+
+.olivo-trazo-principal {
+    fill: none;
+    stroke: var(--verde);
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.olivo-trazo-acento {
+    fill: none;
+    stroke: #947542;
+    stroke-width: 1.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.olivo-vestimenta > .olivo-vestimenta-tipo {
+    margin-bottom: 20px;
+    color: var(--verde);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.8rem;
+    font-style: italic;
+}
+
+.olivo-vestimenta > .olivo-vestimenta-descripcion {
+    max-width: 460px;
+    color: var(--texto-suave);
+    font-size: 0.95rem;
+    line-height: 1.9;
+}
+
+.olivo-vestimenta > .olivo-vestimenta-nota {
+    max-width: 400px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #c8cebb;
+    color: var(--verde);
+    font-size: 0.85rem;
+    line-height: 1.8;
+}
+
+
+/* ==================================================
+   OLIVO · Regalos
+   ================================================== */
+
+.olivo-regalos {
+    padding: 72px 24px;
+    background: var(--fondo);
+}
+
+.olivo-regalo-ilustracion {
+    display: block;
+    width: 76px;
+    height: auto;
+    margin: 28px auto;
+}
+
+.olivo-regalos > .olivo-regalos-mensaje {
+    max-width: 460px;
+    color: var(--texto-suave);
+    font-size: 0.95rem;
+    line-height: 1.9;
+}
+
+.olivo-regalos .olivo-separador {
+    margin-top: 32px;
+    margin-bottom: 0;
+}
+
+@media (min-width: 700px) {
+    .olivo-vestimenta,
+    .olivo-regalos {
+        padding: 88px 32px;
+    }
+
+    .olivo-vestimenta-ilustracion {
+        width: 210px;
+    }
+}
+
+/* ==================================================
+   OLIVO · Despedida
+   ================================================== */
+
+.olivo-despedida {
+    padding: 72px 24px 48px;
+    background:
+        radial-gradient(
+            ellipse at bottom right,
+            rgba(168, 178, 155, 0.14),
+            transparent 65%
+        ),
+        var(--verde);
+    color: var(--fondo);
+}
+
+.olivo-despedida > .etiqueta {
+    margin-bottom: 24px;
+    color: #e1cfaa;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 2.5px;
+}
+
+.olivo-despedida h2 {
+    max-width: 650px;
+    margin: 0 auto;
+    color: var(--fondo);
+    font-family: "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: clamp(2rem, 6vw, 3.4rem);
+    line-height: 1.2;
+    text-wrap: balance;
+}
+
+.olivo-despedida .olivo-separador {
+    margin: 32px auto;
+}
+
+.olivo-despedida .olivo-separador > span {
+    background: #c5ae7e;
+}
+
+.olivo-despedida > .olivo-despedida-nombres {
+    margin-bottom: 12px;
+    color: var(--fondo);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.4rem, 4vw, 1.9rem);
+    font-style: italic;
+    line-height: 1.4;
+    text-wrap: balance;
+}
+
+.olivo-despedida > .olivo-despedida-fecha {
+    margin-bottom: 0;
+    color: #e1e5d8;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.8;
+}
+
+.olivo-volver {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    min-height: 44px;
+    margin-top: 36px;
+    padding: 8px 4px;
+    border-bottom: 1px solid #c5ae7e;
+    color: var(--fondo);
+    font-size: 0.75rem;
+    text-decoration: none;
+}
+
+.olivo-volver:hover {
+    color: #e1cfaa;
+}
+
+.olivo-volver:focus-visible {
+    outline: 2px solid #e1cfaa;
+    outline-offset: 5px;
+}
+
+
+/* ==================================================
+   OLIVO · Firma de Tinta Esencial
+   ================================================== */
+
+.olivo-pie {
+    padding: 36px 24px;
+    border-top: 0;
+    background: var(--fondo);
+    text-align: center;
+}
+
+.olivo-pie .olivo-pie-creditos {
+    margin-bottom: 8px;
+    color: var(--texto-suave);
+    font-size: 0.7rem;
+}
+
+.olivo-pie-marca {
+    display: inline-block;
+    padding: 4px 0;
+    color: var(--verde);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.45rem;
+    line-height: 1.4;
+    text-decoration: none;
+}
+
+.olivo-pie .olivo-pie-descripcion {
+    margin-top: 8px;
+    margin-bottom: 18px;
+    color: var(--texto-suave);
+    font-size: 0.75rem;
+}
+
+.olivo-pie-catalogo {
+    display: inline-block;
+    min-height: 44px;
+    padding: 12px 4px;
+    color: var(--verde);
+    font-size: 0.75rem;
+    text-underline-offset: 5px;
+}
+
+@media (min-width: 700px) {
+    .olivo-despedida {
+        padding: 88px 32px 56px;
+    }
+
+    .olivo-pie {
+        padding: 40px 32px;
+    }
+}
+
+/* OLIVO · Enlaces de ubicación */
+
+.olivo-mapa {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 48px;
+    max-width: 100%;
+    margin: 8px 0 20px;
+    padding: 12px 20px;
+    border: 1px solid var(--verde);
+    border-radius: 2px;
+    background: transparent;
+    color: var(--verde);
+    font-size: 0.8rem;
+    line-height: 1.5;
+    text-decoration: none;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.olivo-mapa svg {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.olivo-mapa:hover {
+    background: var(--verde);
+    color: var(--fondo);
+}
+
+.olivo-mapa:focus-visible {
+    outline: 2px solid var(--verde);
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .olivo-mapa {
+        transition: none;
+    }
+}
+
+/* OLIVO · Guardar la fecha */
+
+.olivo-celebracion > .fecha-evento {
+    margin-bottom: 18px;
+}
+
+.olivo-agenda {
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.olivo-calendario {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--olivo-oro);
+    color: var(--verde);
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+
+.olivo-calendario svg {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.olivo-calendario:hover {
+    background: rgba(53, 69, 54, 0.06);
+}
+
+.olivo-calendario:focus-visible {
+    outline: 2px solid var(--verde);
+    outline-offset: 4px;
+}
+
+.olivo-agenda p {
+    max-width: 290px;
+    margin: 12px auto 0;
+    color: var(--texto-suave);
+    font-size: 0.72rem;
+    line-height: 1.7;
+}
+
+/* ==================================================
+   OLIVO · Apertura con sobre
+   ================================================== */
+
+body.olivo-apertura-activa {
+    overflow: hidden;
+}
+
+.olivo-apertura {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 32px 24px;
+    border: 0;
+    overflow-y: auto;
+    background:
+        radial-gradient(
+            ellipse at 20% 15%,
+            rgba(168, 178, 155, 0.2),
+            transparent 60%
+        ),
+        var(--fondo);
+    color: var(--verde);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* Solo mostramos el diálogo cuando JavaScript lo abre. */
+.olivo-apertura[open] {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+.olivo-apertura::backdrop {
+    background: var(--fondo);
+}
+
+.olivo-apertura-contenido {
+    width: 100%;
+    max-width: 520px;
+    margin: auto;
+    text-align: center;
+}
+
+.olivo-apertura-etiqueta {
+    max-width: 280px;
+    margin: 0 auto 20px;
+    font-size: 0.6rem;
+    font-weight: bold;
+    line-height: 1.8;
+    letter-spacing: 2.5px;
+}
+
+.olivo-apertura h2 {
+    max-width: 420px;
+    margin: 0 auto;
+    font-family: "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    line-height: 1.2;
+    text-wrap: balance;
+}
+
+/* Cuerpo del sobre */
+.olivo-sobre {
+    position: relative;
+    isolation: isolate;
+    width: min(100%, 340px);
+    aspect-ratio: 1.55;
+    margin: 54px auto 32px;
+    border: 1px solid #d9d1be;
+    border-radius: 4px;
+    background: #e2dbc9;
+    box-shadow: 0 18px 40px rgba(53, 69, 54, 0.12);
+    perspective: 900px;
+}
+
+/* Tarjeta interior */
+.olivo-sobre-carta {
+    position: absolute;
+    inset: 10px 12px 8px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px;
+    border: 1px solid #e3dac6;
+    background: #fffdf8;
+    transform: translateY(0);
+    transition: transform 0.65s ease 0.25s;
+}
+
+.olivo-sobre-carta > span {
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.olivo-sobre-carta strong {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.1rem, 4vw, 1.5rem);
+    font-style: italic;
+    font-weight: normal;
+    line-height: 1.4;
+}
+
+/* Pliegues frontales */
+.olivo-sobre-bolsillo {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.olivo-sobre-bolsillo::before,
+.olivo-sobre-bolsillo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+}
+
+.olivo-sobre-bolsillo::before {
+    background: #eee7d7;
+    clip-path: polygon(0 0, 50% 55%, 100% 0, 100% 100%, 0 100%);
+}
+
+.olivo-sobre-bolsillo::after {
+    background: #f5efdf;
+    clip-path: polygon(0 100%, 50% 43%, 100% 100%);
+}
+
+/* Solapa superior */
+.olivo-sobre-solapa {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    background: #e9e1cf;
+    clip-path: polygon(0 0, 100% 0, 50% 58%);
+    transform-origin: center top;
+    backface-visibility: hidden;
+    transition: transform 0.6s ease;
+}
+
+/* Sello */
+.olivo-sobre-sello {
+    position: absolute;
+    top: 44%;
+    left: 50%;
+    z-index: 4;
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    border: 3px double #a8b29b;
+    border-radius: 50%;
+    background: var(--verde);
+    color: var(--fondo);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.2s ease;
+}
+
+.olivo-apertura-descripcion {
+    max-width: 310px;
+    margin: 0 auto 24px;
+    color: var(--texto-suave);
+    font-size: 0.85rem;
+    line-height: 1.8;
+}
+
+/* Botones */
+.olivo-abrir,
+.olivo-omitir {
+    min-height: 48px;
+    font: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.olivo-abrir {
+    padding: 12px 28px;
+    border: 1px solid var(--verde);
+    border-radius: 2px;
+    background: var(--verde);
+    color: var(--fondo);
+}
+
+.olivo-abrir:hover {
+    background: var(--verde-oscuro);
+}
+
+.olivo-omitir {
+    display: block;
+    margin: 8px auto 0;
+    padding: 10px 16px;
+    border: 0;
+    background: transparent;
+    color: var(--texto-suave);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.olivo-abrir:focus-visible,
+.olivo-omitir:focus-visible {
+    outline: 2px solid var(--verde);
+    outline-offset: 4px;
+}
+
+/* Estados de la apertura */
+.olivo-apertura.abriendo .olivo-sobre-solapa {
+    transform: rotateX(180deg);
+}
+
+.olivo-apertura.abriendo .olivo-sobre-sello {
+    opacity: 0;
+}
+
+.olivo-apertura.abriendo .olivo-sobre-carta {
+    transform: translateY(-30%);
+}
+
+.olivo-apertura.saliendo {
+    opacity: 0;
+}
+
+/* La animación de portada comenzará después del sobre. */
+.olivo-composicion {
+    animation: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .olivo-portada.entrada-iniciada .olivo-composicion {
+        animation: aparecer-olivo 0.8s ease-out both;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .olivo-apertura,
+    .olivo-sobre-carta,
+    .olivo-sobre-solapa,
+    .olivo-sobre-sello {
+        transition: none;
+    }
+}
+
+/* ==================================================
+   OLIVO · Apariciones al desplazarse
+   ================================================== */
+
+@keyframes olivo-revelar {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .olivo-revelar {
+        animation: olivo-revelar 650ms ease-out both;
+    }
+}
+
+/* OLIVO · Música opcional */
+
+.olivo-control-musica {
+    position: fixed;
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    z-index: 20;
+    max-width: calc(100vw - 32px);
+}
+
+.olivo-control-musica[hidden] {
+    display: none;
+}
+
+.olivo-musica-boton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 48px;
+    margin-left: auto;
+    padding: 10px 16px;
+    border: 1px solid #a8b29b;
+    border-radius: 30px;
+    background: var(--verde);
+    color: var(--fondo);
+    box-shadow: 0 4px 16px rgba(38, 53, 41, 0.18);
+    font: inherit;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+.olivo-musica-icono {
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.olivo-musica-boton[aria-pressed="true"] {
+    border-color: #c5ae7e;
+}
+
+.olivo-musica-boton:focus-visible {
+    outline: 2px solid var(--olivo-oro);
+    outline-offset: 4px;
+}
+
+.olivo-musica-boton:disabled {
+    cursor: wait;
+    opacity: 0.8;
+}
+
+.olivo-musica-estado:empty {
+    display: none;
+}
+
+.olivo-musica-estado:not(:empty) {
+    max-width: 260px;
+    margin: 8px 0 0 auto;
+    padding: 10px 12px;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    background: var(--fondo);
+    color: var(--verde);
+    font-size: 0.75rem;
+    line-height: 1.5;
+}
+
+/* Espacio para que el control no tape el último enlace del pie */
+body.con-control-musica .olivo-pie {
+    padding-bottom: calc(110px + env(safe-area-inset-bottom, 0px));
+}
+
+/* ==================================================
+   OLIVO · Movimiento botánico de entrada
+   ================================================== */
+
+@keyframes olivo-rama-entrada {
+    from {
+        transform: translate(14px, -8px) rotate(-16deg);
+    }
+
+    to {
+        transform: translate(0, 0) rotate(-12deg);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .olivo-portada.entrada-iniciada .olivo-botanica {
+        transform-origin: 85% 90%;
+        animation: olivo-rama-entrada 3.5s ease-out both;
+    }
+}
+
+/* ==================================================
+   OLIVO · Trazo progresivo del itinerario
+   ================================================== */
+
+@keyframes olivo-trazar-linea {
+    from {
+        transform: scaleY(0);
+    }
+
+    to {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes olivo-marcar-momento {
+    from {
+        transform: scale(0.65);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .olivo-itinerario > li.olivo-revelar:not(:last-child)::before {
+        transform-origin: center top;
+        animation: olivo-trazar-linea 900ms ease-out both;
+    }
+
+    .olivo-itinerario > li.olivo-revelar::after {
+        animation: olivo-marcar-momento 450ms ease-out both;
+    }
+}
+
+/* ==================================================
+   OLIVO · Ramas detalladas y brisa continua
+   ================================================== */
+
+.olivo-tallo-detallado,
+.olivo-rabillos {
+    fill: none;
+    stroke: #7c8063;
+    stroke-width: 1.3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.olivo-hoja-cuerpo {
+    fill: url(#olivo-verde-hoja);
+    stroke: #7b886b;
+    stroke-width: 0.55;
+}
+
+.olivo-hoja-reverso .olivo-hoja-cuerpo {
+    fill: url(#olivo-reverso-hoja);
+}
+
+.olivo-hoja-luz {
+    fill: #e0e5cf;
+    opacity: 0.2;
+}
+
+.olivo-vena-central {
+    fill: none;
+    stroke: #61734f;
+    stroke-width: 0.7;
+    stroke-opacity: 0.65;
+    stroke-linecap: round;
+}
+
+.olivo-venas-finas {
+    fill: none;
+    stroke: #61734f;
+    stroke-width: 0.45;
+    stroke-opacity: 0.3;
+}
+
+.olivo-aceitunas {
+    fill: url(#olivo-color-fruto);
+}
+
+/* Ubicación de las dos composiciones */
+.olivo-portada .olivo-rama {
+    position: absolute;
+    z-index: -1;
+    height: auto;
+    pointer-events: none;
+    transform-box: fill-box;
+}
+
+.olivo-portada .olivo-rama-derecha {
+    top: -48px;
+    right: -100px;
+    bottom: auto;
+    left: auto;
+    width: 260px;
+    opacity: 0.66;
+    transform: rotate(-12deg);
+    transform-origin: 85% 95%;
+}
+
+.olivo-portada .olivo-rama-izquierda {
+    top: auto;
+    right: auto;
+    bottom: -60px;
+    left: -140px;
+    width: 235px;
+    opacity: 0.38;
+    transform: rotate(168deg);
+    transform-origin: center;
+}
+
+/* Sustituye la entrada anterior de una sola vez */
+.olivo-portada.entrada-iniciada .olivo-rama {
+    animation: none;
+}
+
+/* Movimiento pequeño: no debe invadir los nombres */
+@keyframes olivo-brisa-derecha {
+    0%, 100% {
+        transform: rotate(-12deg);
+    }
+
+    50% {
+        transform: translate(-3px, 2px) rotate(-10deg);
+    }
+}
+
+@keyframes olivo-brisa-izquierda {
+    0%, 100% {
+        transform: rotate(168deg);
+    }
+
+    50% {
+        transform: translate(2px, -3px) rotate(170deg);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .olivo-portada.entrada-iniciada .olivo-rama-derecha {
+        animation: olivo-brisa-derecha 9s ease-in-out infinite;
+    }
+
+    .olivo-portada.entrada-iniciada .olivo-rama-izquierda {
+        animation: olivo-brisa-izquierda 12s ease-in-out infinite;
+    }
+}
+
+
+@media (min-width: 700px) {
+    .olivo-portada .olivo-rama-derecha {
+        right: -55px;
+        width: 350px;
+    }
+
+    .olivo-portada .olivo-rama-izquierda {
+        bottom: -90px;
+        left: -125px;
+        width: 300px;
+        opacity: 0.45;
+    }
+}
+
+@media (max-width: 360px) {
+    .olivo-portada .olivo-rama-derecha {
+        right: -125px;
+        opacity: 0.5;
+    }
+
+    .olivo-portada .olivo-rama-izquierda {
+        left: -155px;
+        opacity: 0.3;
+    }
+}
+
+/* Ajuste de la rama inferior izquierda */
+
+.olivo-portada .olivo-rama-izquierda {
+    left: -65px;
+    bottom: -25px;
+    width: 235px;
+    opacity: 0.52;
+}
+
+@media (min-width: 700px) {
+    .olivo-portada .olivo-rama-izquierda {
+        left: -60px;
+        bottom: -50px;
+        width: 300px;
+    }
+}
+
+@media (max-width: 360px) {
+    .olivo-portada .olivo-rama-izquierda {
+        left: -80px;
+        bottom: -20px;
+        width: 215px;
+        opacity: 0.45;
+    }
+}
+
+/* ==================================================
+   OLIVO · Hojas cayendo sobre la invitación
+   ================================================== */
+
+.olivo-lluvia {
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.olivo-hoja-cayendo {
+    position: absolute;
+    top: -100px;
+    left: var(--hoja-x);
+    width: var(--hoja-ancho);
+    opacity: 0;
+    pointer-events: none;
+
+    animation-name: olivo-caida;
+    animation-duration: var(--hoja-duracion);
+    animation-delay: var(--hoja-retraso);
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.olivo-hoja-cayendo svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.olivo-hoja-flotante-cuerpo {
+    fill: #a8b58e;
+    stroke: #788665;
+    stroke-width: 0.8;
+}
+
+.olivo-hoja-flotante-nervadura {
+    fill: none;
+    stroke: #657650;
+    stroke-width: 0.8;
+    stroke-linecap: round;
+}
+
+@keyframes olivo-caida {
+    0% {
+        opacity: 0;
+        transform:
+            translate3d(0, 0, 0)
+            rotate(var(--hoja-giro));
+    }
+
+    12% {
+        opacity: 0.32;
+    }
+
+    50% {
+        transform:
+            translate3d(
+                var(--hoja-desvio),
+                calc(50vh + 50px),
+                0
+            )
+            rotate(calc(var(--hoja-giro) + 90deg));
+    }
+
+    88% {
+        opacity: 0.32;
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate3d(0, calc(100vh + 150px), 0)
+            rotate(calc(var(--hoja-giro) + 180deg));
+    }
+}
+
+/* Evita trabajo innecesario cuando cambias de pestaña. */
+.olivo-lluvia.pagina-no-visible .olivo-hoja-cayendo {
+    animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .olivo-lluvia {
+        display: none;
+    }
+}
+
+/* OLIVO · Ilustraciones con volumen */
+
+.olivo-vestimenta .olivo-vestimenta-ilustracion {
+    display: block;
+    width: min(250px, 100%);
+    height: auto;
+    margin: 30px auto 24px;
+}
+
+.olivo-icono-evento {
+    display: block;
+    width: 128px;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 24px;
+}
+
+@media (min-width: 700px) {
+    .olivo-vestimenta .olivo-vestimenta-ilustracion {
+        width: 280px;
+    }
+
+    .olivo-icono-evento {
+        width: 144px;
+    }
+}
+
+/* OLIVO · Ilustraciones en acuarela */
+
+.olivo-vestimenta .olivo-vestimenta-ilustracion {
+    display: block;
+    width: min(280px, 100%);
+    height: auto;
+    margin: 30px auto 24px;
+}
+
+.olivo-lugar .olivo-icono-evento {
+    display: block;
+    width: 170px;
+    max-width: 100%;
+    height: 145px;
+    object-fit: contain;
+    margin: 0 auto 24px;
+}
+
+.olivo-portada img.olivo-rama {
+    display: block;
+    height: auto;
+}

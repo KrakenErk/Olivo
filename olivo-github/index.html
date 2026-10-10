@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Descubre Olivo, una demostración de invitación digital de boda de Tinta Esencial."
+    >
+
+    <title>Boda de Valeria y Santiago | Tinta Esencial</title>
+
+    <!-- Fuentes de la invitación. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Source+Sans+3:wght@400;500;600&amp;display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Diseño principal existente. -->
+    <link
+        rel="stylesheet"
+        href="css/invitacion.css"
+    >
+
+    <!-- Acabados de esta versión de Olivo. -->
+    <style>
+        :root {
+            --olivo-fuente-titulos:
+                "Cormorant Garamond", Georgia, serif;
+
+            --olivo-fuente-textos:
+                "Source Sans 3", Arial, sans-serif;
+
+            --olivo-oro: #a78b58;
+            --olivo-oro-claro: #d4c29a;
+            --olivo-oro-profundo: #887044;
+
+            --olivo-textura-papel: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='papel' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23papel)' opacity='.38'/%3E%3C/svg%3E");
+        }
+
+        /* TIPOGRAFÍA GENERAL */
+
+        body.olivo-papel {
+            font-family: var(--olivo-fuente-textos);
+            font-weight: 400;
+            line-height: 1.75;
+        }
+
+        .olivo-papel :is(
+            h1,
+            h2,
+            h3,
+            .olivo-nombres,
+            .olivo-monograma,
+            .olivo-frase,
+            .olivo-firma,
+            .olivo-fecha time,
+            .contador-numero,
+            .olivo-lugar-hora,
+            .olivo-itinerario time,
+            .olivo-vestimenta-tipo,
+            .olivo-despedida-nombres,
+            .olivo-despedida-fecha,
+            .olivo-pie-marca,
+            .olivo-sobre-carta strong,
+            .olivo-sobre-sello
+        ) {
+            font-family: var(--olivo-fuente-titulos);
+        }
+
+        .olivo-papel :is(h1, h2, h3) {
+            font-weight: 500;
+        }
+
+        .olivo-papel h2 {
+            line-height: 1.12;
+            letter-spacing: -0.025em;
+            text-wrap: balance;
+        }
+
+        .olivo-papel h3 {
+            line-height: 1.2;
+        }
+
+        .olivo-papel .olivo-nombres {
+            font-weight: 500;
+            letter-spacing: -0.035em;
+            line-height: 1.05;
+        }
+
+        .olivo-papel .olivo-nombres .olivo-union {
+            font-family: var(--olivo-fuente-titulos);
+            font-weight: 400;
+            font-style: italic;
+            color: var(--olivo-oro-profundo);
+        }
+
+        .olivo-papel .olivo-frase {
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            font-style: italic;
+            font-weight: 500;
+            line-height: 1.55;
+        }
+
+        .olivo-papel .olivo-fecha time {
+            font-weight: 500;
+            font-size: clamp(1.3rem, 3vw, 1.65rem);
+        }
+
+        .olivo-papel .contador-numero {
+            font-weight: 500;
+            font-variant-numeric: lining-nums tabular-nums;
+        }
+
+        .olivo-papel :is(
+            .etiqueta,
+            .olivo-antetitulo,
+            .olivo-fecha-etiqueta,
+            .olivo-lugar-etiqueta,
+            .olivo-apertura-etiqueta,
+            .contador-unidad,
+            .olivo-nota,
+            .olivo-pie-creditos,
+            .olivo-pie-descripcion
+        ) {
+            font-family: var(--olivo-fuente-textos);
+        }
+
+        .olivo-papel :is(
+            .etiqueta,
+            .olivo-antetitulo,
+            .olivo-fecha-etiqueta,
+            .olivo-lugar-etiqueta,
+            .olivo-apertura-etiqueta
+        ) {
+            font-weight: 600;
+        }
+
+        .olivo-papel :is(
+            button,
+            input,
+            select,
+            textarea
+        ) {
+            font-family: var(--olivo-fuente-textos);
+        }
+
+        /* TEXTURA DE PAPEL EN TODA LA INVITACIÓN */
+
+        .olivo-papel :is(
+            .barra-demo,
+            .olivo-portada,
+            main > .seccion,
+            .olivo-pie,
+            .olivo-apertura
+        ) {
+            position: relative;
+            isolation: isolate;
+        }
+
+        .olivo-papel :is(
+            .barra-demo,
+            .olivo-portada,
+            main > .seccion,
+            .olivo-pie,
+            .olivo-apertura
+        )::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            border-radius: inherit;
+            background-image: var(--olivo-textura-papel);
+            background-repeat: repeat;
+            background-size: 180px 180px;
+            opacity: 0.23;
+            pointer-events: none;
+        }
+
+        /* Sustituye el antiguo patrón de líneas de la portada. */
+        .olivo-papel .olivo-portada::before {
+            content: none;
+        }
+
+        /* RAMAS EN ESPEJO */
+
+        /*
+           El contenedor conserva la posición y la animación.
+           Solo la imagen interior se invierte horizontalmente.
+        */
+        .olivo-papel .olivo-rama > img {
+            display: block;
+            width: 100%;
+            height: auto;
+            transform: scaleX(-1);
+            transform-origin: center;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        /* TAMAÑOS DE LAS ILUSTRACIONES */
+
+        .olivo-papel .olivo-lugar img.olivo-icono-evento {
+            display: block;
+            width: 170px;
+            max-width: 100%;
+            height: 145px;
+            object-fit: contain;
+            margin: 0 auto 24px;
+        }
+
+        .olivo-papel .olivo-vestimenta img.olivo-vestimenta-ilustracion {
+            display: block;
+            width: min(250px, 100%);
+            height: auto;
+            margin: 28px auto 24px;
+        }
+
+        .olivo-papel .olivo-regalos img.olivo-regalo-ilustracion {
+            display: block;
+            width: min(150px, 100%);
+            height: auto;
+            object-fit: contain;
+            margin: 28px auto;
+        }
+
+        /* SEPARADORES EN DORADO MATE */
+
+        .olivo-papel .olivo-separador {
+            gap: 13px;
+        }
+
+        .olivo-papel .olivo-separador > span:not(.olivo-rombo) {
+            width: 52px;
+            height: 1px;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                var(--olivo-oro),
+                var(--olivo-oro-claro)
+            );
+        }
+
+        .olivo-papel .olivo-separador > span:last-child {
+            background: linear-gradient(
+                90deg,
+                var(--olivo-oro-claro),
+                var(--olivo-oro),
+                transparent
+            );
+        }
+
+        .olivo-papel .olivo-rombo {
+            width: 6px;
+            height: 6px;
+            border: 1px solid var(--olivo-oro);
+            background: var(--olivo-oro-claro);
+            transform: rotate(45deg);
+        }
+
+        .olivo-papel .olivo-monograma {
+            border-top-color: var(--olivo-oro);
+            border-bottom-color: var(--olivo-oro);
+        }
+
+        .olivo-papel .olivo-lugar-linea {
+            height: 1px;
+            border: 0;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                var(--olivo-oro),
+                transparent
+            );
+        }
+
+        /* BOTONES DE UBICACIÓN, CALENDARIO Y NAVEGACIÓN */
+
+        .olivo-papel :is(
+            .olivo-mapa,
+            .olivo-calendario,
+            .olivo-enlace,
+            .olivo-volver,
+            .olivo-pie-catalogo
+        ) {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 46px;
+            max-width: 100%;
+            padding: 12px 20px;
+            border: 1px solid rgba(167, 139, 88, 0.65);
+            border-radius: 4px;
+            background: rgba(255, 253, 248, 0.65);
+            color: var(--verde-oscuro);
+            font-family: var(--olivo-fuente-textos);
+            font-size: 0.9rem;
+            font-weight: 500;
+            line-height: 1.35;
+            letter-spacing: 0.015em;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(53, 69, 54, 0.04);
+            transition:
+                background-color 180ms ease,
+                border-color 180ms ease,
+                box-shadow 180ms ease;
+        }
+
+        .olivo-papel :is(
+            .olivo-mapa,
+            .olivo-calendario,
+            .olivo-enlace,
+            .olivo-volver,
+            .olivo-pie-catalogo
+        ):hover {
+            border-color: var(--olivo-oro-profundo);
+            background: #fffdf8;
+            color: var(--verde-oscuro);
+            box-shadow: 0 3px 9px rgba(53, 69, 54, 0.08);
+        }
+
+        .olivo-papel :is(
+            .olivo-mapa,
+            .olivo-calendario,
+            .olivo-enlace,
+            .olivo-volver,
+            .olivo-pie-catalogo
+        ):active {
+            background: #eee6d7;
+            box-shadow: none;
+        }
+
+        .olivo-papel .olivo-pie-catalogo {
+            margin-top: 12px;
+        }
+
+        /* BOTÓN DE APERTURA */
+
+        .olivo-papel .olivo-abrir {
+            min-height: 48px;
+            padding: 13px 28px;
+            border: 1px solid var(--olivo-oro);
+            border-radius: 4px;
+            background: var(--verde);
+            color: #fffdf8;
+            font-family: var(--olivo-fuente-textos);
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            transition: background-color 180ms ease;
+        }
+
+        .olivo-papel .olivo-abrir:hover {
+            background: var(--verde-oscuro);
+        }
+
+        .olivo-papel .olivo-omitir {
+            font-family: var(--olivo-fuente-textos);
+            font-size: 0.9rem;
+        }
+
+        /* BOTÓN DE MÚSICA */
+
+        .olivo-papel .olivo-musica-boton {
+            min-height: 46px;
+            padding: 11px 18px;
+            border: 1px solid var(--olivo-oro-claro);
+            border-radius: 999px;
+            background: rgba(38, 53, 41, 0.95);
+            color: #fffdf8;
+            font-family: var(--olivo-fuente-textos);
+            font-size: 0.9rem;
+            font-weight: 500;
+            line-height: 1.35;
+            box-shadow: 0 3px 12px rgba(26, 37, 29, 0.15);
+            cursor: pointer;
+            transition:
+                background-color 180ms ease,
+                border-color 180ms ease;
+        }
+
+        .olivo-papel .olivo-musica-boton:hover {
+            background: #354536;
+            border-color: #ead9b7;
+        }
+
+        .olivo-papel .olivo-musica-boton:active {
+            background: #1e2b21;
+        }
+
+        .olivo-papel .olivo-musica-boton[aria-pressed="true"] {
+            border-color: #ead9b7;
+        }
+
+        .olivo-papel .olivo-musica-icono {
+            color: #ead9b7;
+        }
+
+        /* ICONOS DE LOS BOTONES */
+
+        .olivo-papel :is(.olivo-calendario, .olivo-mapa) svg {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* NAVEGACIÓN CON TECLADO */
+
+        .olivo-papel :is(a, button):focus-visible {
+            outline: 2px solid var(--olivo-oro-profundo);
+            outline-offset: 4px;
+        }
+
+        .olivo-papel .olivo-musica-boton:focus-visible {
+            outline-color: var(--olivo-oro-claro);
+        }
+
+        /* RESPETO A LA PREFERENCIA DE MOVIMIENTO REDUCIDO */
+
+        @media (prefers-reduced-motion: reduce) {
+            .olivo-papel :is(
+                .olivo-mapa,
+                .olivo-calendario,
+                .olivo-enlace,
+                .olivo-volver,
+                .olivo-pie-catalogo,
+                .olivo-abrir,
+                .olivo-musica-boton
+            ) {
+                transition: none;
+            }
+        }
+    </style>
+    <link
+    rel="stylesheet"
+    href="css/papel-olivo.css"
+    >
+</head>
+
+<body class="olivo-papel">
+    <!-- APERTURA -->
+    <dialog
+        class="olivo-apertura"
+        id="apertura-invitacion"
+        aria-labelledby="titulo-apertura"
+        aria-describedby="descripcion-apertura"
+    >
+        <div class="olivo-apertura-contenido">
+            <p class="olivo-apertura-etiqueta">
+                HAY MOMENTOS QUE MERECEN COMPARTIRSE
+            </p>
+
+            <h2 id="titulo-apertura">
+                Tenemos algo especial para ti
+            </h2>
+
+            <div class="olivo-sobre" aria-hidden="true">
+                <div class="olivo-sobre-carta">
+                    <span>Nos casamos</span>
+
+                    <strong>
+                        Valeria &amp; Santiago
+                    </strong>
+                </div>
+
+                <div class="olivo-sobre-bolsillo"></div>
+                <div class="olivo-sobre-solapa"></div>
+
+                <div class="olivo-sobre-sello">
+                    V / S
+                </div>
+            </div>
+
+            <p
+                id="descripcion-apertura"
+                class="olivo-apertura-descripcion"
+            >
+                Una fecha, una historia y muchas ganas
+                de celebrarla contigo.
+            </p>
+
+            <button
+                class="olivo-abrir"
+                id="abrir-invitacion"
+                type="button"
+                autofocus
+            >
+                Abrir invitación
+            </button>
+
+            
+        </div>
+    </dialog>
+
+    <!-- BARRA DE DEMOSTRACIÓN -->
+    <header class="barra-demo">
+        
+
+        <span>Modelo Olivo · Demostración</span>
+    </header>
+
+    <main>
+        <!-- PORTADA -->
+        <section
+            class="portada-invitacion olivo-portada"
+            aria-labelledby="nombres"
+        >
+            <!-- El contenedor se mueve; la imagen se refleja. -->
+            <div
+                class="olivo-botanica olivo-rama olivo-rama-derecha"
+                aria-hidden="true"
+            >
+                <img
+                    src="imagenes/olivo/ramas-florales.png"
+                    alt=""
+                    width="1024"
+                    height="1536"
+                >
+            </div>
+
+            <div
+                class="olivo-rama olivo-rama-izquierda"
+                aria-hidden="true"
+            >
+                <img
+                    src="imagenes/olivo/ramas-florales.png"
+                    alt=""
+                    width="1024"
+                    height="1536"
+                >
+            </div>
+
+            <div class="olivo-composicion">
+                
+                    <div class="olivo-monograma" aria-hidden="true">
+                        V / S
+                    </div>
+                
+
+                <p class="olivo-antetitulo">NOS CASAMOS</p>
+
+                <h1 class="olivo-nombres" id="nombres">
+                    
+                        <span class="olivo-nombre">
+                            Valeria
+                        </span>
+
+                        
+                            <span class="olivo-union">&amp;</span>
+                        
+                    
+                        <span class="olivo-nombre">
+                            Santiago
+                        </span>
+
+                        
+                    
+                </h1>
+
+                <div class="olivo-separador" aria-hidden="true">
+                    <span></span>
+                    <span class="olivo-rombo"></span>
+                    <span></span>
+                </div>
+
+                <p class="olivo-frase">
+                    De todos los caminos,<br>
+                    elegimos caminar juntos.
+                </p>
+
+                <div class="olivo-fecha">
+                    <span class="olivo-fecha-etiqueta">
+                        ACOMPÁÑANOS EL
+                    </span>
+
+                    <time datetime="2026-12-12">
+                        12 de diciembre de 2026
+                    </time>
+                </div>
+
+                <a class="olivo-enlace" href="#celebracion">
+                    <span>Descubre nuestra celebración</span>
+                    <span aria-hidden="true">↓</span>
+                </a>
+            </div>
+
+            <p class="olivo-nota">
+                Colección Olivo · Invitación de demostración
+            </p>
+        </section>
+
+        <!-- CUENTA REGRESIVA -->
+        <section
+            class="seccion cuenta-regresiva olivo-contador"
+            aria-labelledby="titulo-contador"
+        >
+            <p class="etiqueta">NUESTRO GRAN DÍA</p>
+
+            <h2 id="titulo-contador">
+                Contamos los días<br>
+                para compartirlo contigo.
+            </h2>
+
+            <div
+                class="contador"
+                id="contador"
+                data-fecha="2026-12-12T16:00:00-06:00"
+                hidden
+            >
+                <div class="contador-bloque">
+                    <span class="contador-numero" id="dias">00</span>
+                    <span class="contador-unidad">Días</span>
+                </div>
+
+                <div class="contador-bloque">
+                    <span class="contador-numero" id="horas">00</span>
+                    <span class="contador-unidad">Horas</span>
+                </div>
+
+                <div class="contador-bloque">
+                    <span class="contador-numero" id="minutos">00</span>
+                    <span class="contador-unidad">Minutos</span>
+                </div>
+
+                <div class="contador-bloque">
+                    <span class="contador-numero" id="segundos">00</span>
+                    <span class="contador-unidad">Segundos</span>
+                </div>
+            </div>
+
+            <p class="contador-mensaje" id="mensaje-contador">
+                Te esperamos el 12 de diciembre de 2026
+                a las 4:00 p. m..
+            </p>
+        </section>
+
+        <!-- HISTORIA -->
+        <section
+            class="seccion mensaje olivo-historia"
+            aria-labelledby="titulo-mensaje"
+        >
+            <p class="etiqueta">NUESTRA HISTORIA CONTINÚA</p>
+
+            <h2 id="titulo-mensaje">
+                Un nuevo capítulo.<br>
+                Las mismas ganas de estar juntos.
+            </h2>
+
+            <div class="olivo-separador" aria-hidden="true">
+                <span></span>
+                <span class="olivo-rombo"></span>
+                <span></span>
+            </div>
+
+            <p class="olivo-historia-texto">
+                Entre tantos caminos, encontramos el nuestro.
+                Hoy queremos celebrar lo que hemos construido
+                y todo lo que está por venir, rodeados de las
+                personas que forman parte de nuestra vida.
+            </p>
+
+            <p class="olivo-firma">
+                Valeria &amp; Santiago
+            </p>
+        </section>
+
+        <!-- CELEBRACIÓN -->
+        <section
+            class="seccion celebracion olivo-celebracion"
+            id="celebracion"
+            aria-labelledby="titulo-celebracion"
+        >
+            <p class="etiqueta">DOS MOMENTOS, UNA CELEBRACIÓN</p>
+
+            <h2 id="titulo-celebracion">
+                Nos vemos para celebrar
+            </h2>
+
+            <p class="fecha-evento">
+                <time datetime="2026-12-12">
+                    12 de diciembre de 2026
+                </time>
+            </p>
+
+            <div class="olivo-agenda">
+                <a
+                    class="olivo-calendario"
+                    href="#celebracion"
+                    aria-describedby="ayuda-calendario"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="20"
+                        height="20"
+                        fill="none"
+                        stroke="currentColor"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <rect
+                            x="3"
+                            y="5"
+                            width="18"
+                            height="16"
+                            rx="2"
+                        />
+                        <path d="M7 3 V7 M17 3 V7 M3 10 H21" />
+                        <path d="M8 15 L11 18 L16 13" />
+                    </svg>
+
+                    <span>Agregar a Google Calendar</span>
+                </a>
+
+                <p id="ayuda-calendario">
+                    Activa JavaScript para preparar el evento en Google Calendar.
+                </p>
+            </div>
+
+            <div class="olivo-lugares">
+                <!-- CEREMONIA -->
+                <article class="olivo-lugar">
+                    <img
+                        class="olivo-icono-evento"
+                        src="imagenes/olivo/anillos-acuarela.png"
+                        alt=""
+                        width="1536"
+                        height="1024"
+                        loading="lazy"
+                    >
+
+                    <p class="olivo-lugar-etiqueta">
+                        EL COMIENZO
+                    </p>
+
+                    <h3>Ceremonia</h3>
+
+                    <p class="olivo-lugar-hora">
+                        <time datetime="16:00">
+                            4:00 p. m.
+                        </time>
+                    </p>
+
+                    <div
+                        class="olivo-lugar-linea"
+                        aria-hidden="true"
+                    ></div>
+
+                    <p class="olivo-lugar-nombre">
+                        Parroquia de San Juan Bautista
+                    </p>
+
+                    
+                        <p class="olivo-lugar-direccion">
+                            Centenario 8, Villa de Coyoacán, alcaldía Coyoacán, C. P. 04000.
+                        </p>
+                    
+
+                    
+                        <p class="olivo-lugar-ciudad">
+                            Ciudad de México
+                        </p>
+                    
+
+                    
+
+                    
+                        <a
+                            class="olivo-mapa"
+                            href="https://www.google.com/maps/search/?api=1&amp;query=Parroquia+de+San+Juan+Bautista+Centenario+8+Coyoacan+04000+Ciudad+de+Mexico"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Cómo llegar a la ceremonia; abre una nueva pestaña"
+                        >
+                            <svg
+                                viewBox="0 0 24 24"
+                                width="20"
+                                height="20"
+                                aria-hidden="true"
+                                focusable="false"
+                            >
+                                <path d="M20 10 C20 16 12 22 12 22 S4 16 4 10 A8 8 0 0 1 20 10 Z" />
+                                <circle cx="12" cy="10" r="2.5" />
+                            </svg>
+
+                            <span>Cómo llegar</span>
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    
+
+                    <p class="olivo-lugar-nota">
+                        Ubicación de ejemplo para explorar el mapa.
+                        No corresponde a un evento real.
+                    </p>
+                </article>
+
+                <!-- RECEPCIÓN -->
+                <article class="olivo-lugar">
+                    <img
+                        class="olivo-icono-evento"
+                        src="imagenes/olivo/copas-acuarela.png"
+                        alt=""
+                        width="1212"
+                        height="1298"
+                        loading="lazy"
+                    >
+
+                    <p class="olivo-lugar-etiqueta">
+                        LA CELEBRACIÓN
+                    </p>
+
+                    <h3>Recepción</h3>
+
+                    <p class="olivo-lugar-hora">
+                        <time datetime="18:00">
+                            6:00 p. m.
+                        </time>
+                    </p>
+
+                    <div
+                        class="olivo-lugar-linea"
+                        aria-hidden="true"
+                    ></div>
+
+                    <p class="olivo-lugar-nombre">
+                        Hacienda de los Morales
+                    </p>
+
+                    
+                        <p class="olivo-lugar-direccion">
+                            Juan Vázquez de Mella 525, Polanco I Sección, alcaldía Miguel Hidalgo, C. P. 11510.
+                        </p>
+                    
+
+                    
+                        <p class="olivo-lugar-ciudad">
+                            Ciudad de México
+                        </p>
+                    
+
+                    
+
+                    
+                        <a
+                            class="olivo-mapa"
+                            href="https://www.google.com/maps/search/?api=1&amp;query=Hacienda+de+los+Morales+Juan+Vazquez+de+Mella+525+11510+Ciudad+de+Mexico"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Cómo llegar a la recepción; abre una nueva pestaña"
+                        >
+                            <svg
+                                viewBox="0 0 24 24"
+                                width="20"
+                                height="20"
+                                aria-hidden="true"
+                                focusable="false"
+                            >
+                                <path d="M20 10 C20 16 12 22 12 22 S4 16 4 10 A8 8 0 0 1 20 10 Z" />
+                                <circle cx="12" cy="10" r="2.5" />
+                            </svg>
+
+                            <span>Cómo llegar</span>
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    
+
+                    <p class="olivo-lugar-nota">
+                        Ubicación de ejemplo para explorar el mapa.
+                        No corresponde a un evento real.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- PROGRAMA -->
+        <section
+            class="seccion olivo-programa"
+            aria-labelledby="titulo-programa"
+        >
+            <p class="etiqueta">ASÍ VIVIREMOS ESTE DÍA</p>
+
+            <h2 id="titulo-programa">
+                Momentos para recordar
+            </h2>
+
+            <p class="olivo-programa-intro">
+                Desde el primer encuentro hasta el último baile.
+            </p>
+
+            <ol class="olivo-itinerario">
+                <li>
+                    <time datetime="16:00">
+                        4:00 p. m.
+                    </time>
+
+                    <div class="olivo-momento">
+                        <h3>El sí, acepto</h3>
+                        <p>
+                            Nos acompañas a comenzar este nuevo
+                            capítulo en nuestra ceremonia.
+                        </p>
+                    </div>
+                </li>
+
+                <li>
+                    <time datetime="18:00">
+                        6:00 p. m.
+                    </time>
+
+                    <div class="olivo-momento">
+                        <h3>Bienvenidos a la celebración</h3>
+                        <p>
+                            Un momento para encontrarnos,
+                            abrazarnos y compartir la alegría.
+                        </p>
+                    </div>
+                </li>
+
+                <li>
+                    <time datetime="19:00">
+                        7:00 p. m.
+                    </time>
+
+                    <div class="olivo-momento">
+                        <h3>A la mesa</h3>
+                        <p>
+                            Disfrutaremos de una cena y de la
+                            compañía de nuestras personas favoritas.
+                        </p>
+                    </div>
+                </li>
+
+                <li>
+                    <time datetime="20:00">
+                        8:00 p. m.
+                    </time>
+
+                    <div class="olivo-momento">
+                        <h3>Que comience el baile</h3>
+                        <p>
+                            Música, sonrisas y recuerdos que
+                            nos llevaremos para siempre.
+                        </p>
+                    </div>
+                </li>
+            </ol>
+
+            <p class="olivo-programa-cierre">
+                Lo más especial será compartirlo contigo.
+            </p>
+        </section>
+
+        <!-- VESTIMENTA -->
+        
+
+        <section
+            class="seccion vestimenta olivo-vestimenta"
+            aria-labelledby="titulo-vestimenta"
+        >
+            <p class="etiqueta">UN DETALLE PARA LA OCASIÓN</p>
+
+            <h2 id="titulo-vestimenta">
+                Código de vestimenta
+            </h2>
+
+            <img
+                class="olivo-vestimenta-ilustracion"
+                src="imagenes/olivo/vestimenta-trazo-v2.png"
+                alt=""
+                width="1536"
+                height="1024"
+                loading="lazy"
+            >
+
+            <p class="olivo-vestimenta-tipo">
+                Formal
+            </p>
+
+            
+                <p class="olivo-vestimenta-descripcion">
+                    Elige algo especial para celebrar con nosotros y cómodo para disfrutar hasta el último baile.
+                </p>
+            
+
+            
+                <p class="olivo-vestimenta-nota">
+                    Te agradecemos reservar el blanco para la novia.
+                </p>
+            
+        </section>
+
+        <!-- REGALOS -->
+        
+
+        <section
+            class="seccion olivo-regalos"
+            aria-labelledby="titulo-regalos"
+        >
+            <p class="etiqueta">CON TODO NUESTRO CARIÑO</p>
+
+            <img
+                class="olivo-regalo-ilustracion"
+                src="imagenes/olivo/regalo-sin-flores.png"
+                alt=""
+                width="1280"
+                height="1280"
+                loading="lazy"
+            >
+
+            <h2 id="titulo-regalos">
+                El mejor regalo es compartirlo contigo
+            </h2>
+
+            
+                <p class="olivo-regalos-mensaje">
+                    Tu presencia en este día es nuestro mejor regalo. Gracias por acompañarnos al comenzar esta nueva etapa. Si además deseas tener un detalle con nosotros, lo recibiremos con todo nuestro cariño.
+                </p>
+            
+
+            <div class="olivo-separador" aria-hidden="true">
+                <span></span>
+                <span class="olivo-rombo"></span>
+                <span></span>
+            </div>
+        </section>
+
+        
+        
+
+        <!-- DESPEDIDA -->
+        <section
+            class="seccion despedida olivo-despedida"
+            aria-labelledby="titulo-despedida"
+        >
+            <p class="etiqueta">LO MEJOR ESTÁ POR VENIR</p>
+
+            <h2 id="titulo-despedida">
+                Qué bonito será<br>
+                celebrarlo contigo.
+            </h2>
+
+            <div class="olivo-separador" aria-hidden="true">
+                <span></span>
+                <span class="olivo-rombo"></span>
+                <span></span>
+            </div>
+
+            <p class="olivo-despedida-nombres">
+                Valeria &amp; Santiago
+            </p>
+
+            <p class="olivo-despedida-fecha">
+                <time datetime="2026-12-12">
+                    12 de diciembre de 2026
+                </time>
+            </p>
+
+            <a class="olivo-volver" href="#nombres">
+                Volver al inicio
+                <span aria-hidden="true">↑</span>
+            </a>
+        </section>
+    </main>
+
+    <!-- PIE -->
+    <footer class="pie-invitacion olivo-pie">
+        <p class="olivo-pie-creditos">
+            Una invitación creada por
+        </p>
+
+        <a class="olivo-pie-marca" href="#nombres">
+            Tinta Esencial
+        </a>
+
+        <p class="olivo-pie-descripcion">
+            Pequeños detalles para grandes momentos.
+        </p>
+
+        
+    </footer>
+
+    <!-- MÚSICA -->
+    
+
+    
+
+    <!-- FUNCIONES Y ANIMACIONES -->
+    <script src="js/invitacion.js"></script>
+    <script src="js/apertura.js"></script>
+    <script src="js/animaciones.js"></script>
+    
+    <script src="js/ramas.js"></script>
+</body>
+</html>
